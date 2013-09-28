@@ -14,18 +14,18 @@ import hack.persistence.model.User;
  */
 public abstract class AbstractPersistance implements PersistenceInterface 
 {
-    private HashMap<User, LoginDetails> m_LoginDetails = new HashMap<User, LoginDetails>();
+    private HashMap<String, LoginDetails> m_LoginDetails = new HashMap<String, LoginDetails>();
     
     private HashMap<String, User> m_User = new HashMap<String, User>();
     
     private HashMap<Long, Query> m_Query = new HashMap<Long, Query>();
     
-    public LoginDetails getLoginDetails(User user)
+    public LoginDetails getLoginDetails(String user)
     {
         return m_LoginDetails.get(user);
     }
     
-    public void addLoginDetails(User user, LoginDetails loginDetails)
+    public void addLoginDetails(String user, LoginDetails loginDetails)
     {
         m_LoginDetails.put(user, loginDetails);
     }
