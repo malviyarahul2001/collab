@@ -13,13 +13,13 @@ public interface PersistenceInterface
 {
     public LoginDetails getLoginDetails(String user);
     
-    public void addLoginDetails(LoginDetails loginDetails);
+    public void addLoginDetails(String user, LoginDetails loginDetails);
     
     public User getUser(String username);
     
     public void setUser(User user);
     
-    public Query getQuery(String id);
+    public Query getQuery(long id);
     
-    public void setQuery(Query query);
+    public void setQuery(long id, Query query);
 }
