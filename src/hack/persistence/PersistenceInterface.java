@@ -11,7 +11,7 @@ import hack.persistence.model.User;
  */
 public interface PersistenceInterface 
 {
-    public LoginDetails getLoginDetails(User user);
+    public LoginDetails getLoginDetails(String user);
     
     public void addLoginDetails(LoginDetails loginDetails);
     
