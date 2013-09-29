@@ -13,21 +13,15 @@
 
     <!-- the parent application context definition for the springapp application -->
 
-    <bean id="registerManager" class="service.SimpleRegisterManager">
-        <property name="loginDao" ref="loginDao"/>
+    <bean id="registerManager" class="service.action.SimpleRegisterManager">
+        <property name="persistance" ref="persistance"/>
     </bean>
     
-    <bean id="loginManager" class="service.SimpleLoginManager">
-        <property name="loginDao" ref="loginDao"/>
+    <bean id="loginManager" class="service.action.SimpleLoginManager">
+        <property name="persistance" ref="persistance"/>
     </bean>
     
-    <bean id="loginDao" class="springapp.repository.DynamoDbLoginDao"/>
+    <bean id="persistance" class="hack.persistence.impl.SimplePersistenceImpl"/>
 
-    <!--   Message Manager    -->
-    <bean id="messageManager" class="service.SimpleMessageManager">
-        <property name="messageDao" ref="messageDao"/>
-    </bean>
-    
-    <bean id="messageDao" class="springapp.repository.DynamoDbMessageDao"/>
-
+  
 </beans>

@@ -11,38 +11,24 @@
         <property name="basename" value="messages"/>
     </bean>
    
-   <bean name="/newLogin*" class="springapp.web.LoginController">
+   <bean name="/login*" class="service.web.LoginController">
         <property name="sessionForm" value="true"/>
         <property name="commandName" value="login"/>
-        <property name="commandClass" value="service.Login"/>
+        <property name="commandClass" value="service.web.container.Login"/>
         <property name="validator">
-            <bean class="service.LoginValidator"/>
-        </property>
-        <property name="formView" value="newLogin"/>
-        <property name="successView" value="messages.htm"/>
-        <property name="loginManager" ref="loginManager"/>
-        <property name="messageManager" ref="messageManager"/>
-    </bean>
-   
-   <bean name="/login*" class="springapp.web.LoginController">
-        <property name="sessionForm" value="true"/>
-        <property name="commandName" value="login"/>
-        <property name="commandClass" value="service.Login"/>
-        <property name="validator">
-            <bean class="service.LoginValidator"/>
+            <bean class="service.action.LoginValidator"/>
         </property>
         <property name="formView" value="login"/>
         <property name="successView" value="messages.htm"/>
         <property name="loginManager" ref="loginManager"/>
-        <property name="messageManager" ref="messageManager"/>
     </bean>
     
-    <bean name="/register.htm*" class="springapp.web.RegisterController">
+    <bean name="/register.htm*" class="service.web.RegisterController">
         <property name="sessionForm" value="true"/>
         <property name="commandName" value="register"/>
-        <property name="commandClass" value="springapp.domain.User"/>
+        <property name="commandClass" value="service.web.container.UserDetails"/>
         <property name="validator">
-            <bean class="service.RegisterValidator"/>
+            <bean class="service.action.RegisterValidator"/>
         </property>
         <property name="formView" value="register"/>
         <property name="successView" value="login.htm"/>
