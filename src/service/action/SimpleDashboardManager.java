@@ -4,6 +4,7 @@ import hack.persistence.PersistenceInterface;
 import hack.persistence.model.Query;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,13 @@ public class SimpleDashboardManager implements Serializable
     
     public List<Query> getQueries(String username)
     {
-        return null;
+        List<Query> query = new ArrayList<Query>();
+        if(username.equals("a"))
+        {
+            Query newquery = new Query();
+            newquery.setId(1l);
+        }
+        return query;
     }
     
     public PersistenceInterface getPersistance() {

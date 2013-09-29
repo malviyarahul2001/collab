@@ -2,7 +2,6 @@ package service.web;
 
 import hack.persistence.model.User;
 
-import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -15,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import service.action.RegisterManager;
 import service.web.container.UserDetails;
 
-public class RegisterController extends SimpleFormController {
+public class RegisterController {
 
     /** Logger for this class and subclasses */
     protected final Log logger = LogFactory.getLog(getClass());
@@ -37,7 +36,7 @@ public class RegisterController extends SimpleFormController {
     		System.out.println("Username Already Exists !!!");
     	}
         
-        return new ModelAndView(new RedirectView(getSuccessView()));
+        return new ModelAndView(new RedirectView("login"));
     }
 
     protected Object formBackingObject(HttpServletRequest request) throws ServletException {

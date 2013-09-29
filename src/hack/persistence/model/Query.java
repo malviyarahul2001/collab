@@ -6,7 +6,7 @@ public class Query {
 	
 	public Query() {}
 	
-	long id;
+	public long id;
 	User user;
 	String title;
 	String description;

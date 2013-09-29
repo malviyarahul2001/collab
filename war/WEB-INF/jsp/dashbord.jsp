@@ -21,35 +21,6 @@ h1 {
     margin: 16px;
 }
 </style>
-<script type="text/javascript">
-    var submitted = 0;
-
-    function formvalidation() {
-        
-        var form = document.getElementById('loginForm');
-        form.submit();
-        /*
-        var userName = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-        
-        if ((userName == null || userName == "")
-                && (password == null || password == "")) {
-            alert("Please enter the username and password !!!");
-            return false;
-        } else if (userName == null || userName == "") {
-            alert("Please enter the username !!!");
-            return false;
-        } else if (password == null || password == "") {
-            alert("Please enter the password !!!");
-            return false;
-        }
-        else
-        {
-            
-        }
-        */
-    }
-</script>
 
 <link rel="stylesheet"
     href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
@@ -72,41 +43,34 @@ h1 {
     
     <div align="center" class="pure-form pure-form-aligned">
         
-    <form:form id="loginForm" method="post" commandName="login">
-        <table width="50%" align="center" border="0" cellspacing="0" cellpadding="5">
-            <tr>
-                <td align="center" style="color: #0000FF; font-size: 20pt"><b>
-                    <fmt:message key="login.heading" /></b>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table align="center" width="100%">
-                        <tr>
-                            <td width="60%" align="right"><b> 
-                                <form:label path="username">Username <font color="red">(*)</font>: </form:label></b>
-                                <form:input id="username" path="username" /></td>
-                            <td width="40%" align="left"><form:errors path="username" cssClass="error" /></td>
-                        </tr>
-                        <tr>
-                            <td width="60%" align="right"><b> <form:label path="password">Password <font color="red">(*)</font>: </form:label></b>
-                            <form:password id="password" path="password" /></td>
-                            <td align="left" width="40%"><form:errors path="password" cssClass="error" /></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+    <form:form method="post" commandName="dashboard">
+  <table align="center" width="70%" bgcolor="#D8BFD8" border="0" cellspacing="0" cellpadding="5">    
+    <c:if test="${model.query !=null}">
+    <c:forEach items="${model.query}" var="prod">
+    <tr>
+        <td align="right" width="50%">
+             <c:out value="${prod.id}"/>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;
+        </td>
+     </tr> 
+    </c:forEach>
+    </c:if>
+    <c:if test="${empty model.query}">
+    <tr>
+        <td align="center" width="100%" style="color: #0000FF; font-size: 20pt">
+            <b> Sorry !!! No Queries Received !!!</b>
+        </td>
+    </tr>    
+    </c:if>
+    <br>
+    <br>
+    <tr>
+        <td width="100%" colspan=2 align="center" style="color: #008080; font-size: 18pt">
+            <a href="login.htm">Logout</a>
+        </td>
+    </tr>
+  </table>
 
-            <tr width="100%">
-                <td align="center" width="100%">
-                    <a href='#' onclick="formvalidation()">Sign-In</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="<c:url value="register.htm"/>">Register</a>
-                <td>
-            </tr>
-        </table>
-        <br>
-    </form:form>
+</form:form>
     </div>
     <a href="<c:url value="hello.htm"/>">Home</a>
 </body>

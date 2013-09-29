@@ -15,7 +15,7 @@ import org.apache.commons.logging.LogFactory;
 
 import service.action.PostQuery;
 
-public class QueryController extends SimpleFormController {
+public class QueryController {
 
     /** Logger for this class and subclasses */
     protected final Log logger = LogFactory.getLog(getClass());
@@ -27,7 +27,7 @@ public class QueryController extends SimpleFormController {
         Query querydetails = ((Query) command);
         System.out.println("Got Query from " + querydetails.getUser().getName().toString());
         
-        return new ModelAndView(new RedirectView(getSuccessView()));
+        return new ModelAndView();
     }
 
 }

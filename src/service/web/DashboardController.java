@@ -5,7 +5,6 @@ import hack.persistence.model.Query;
 
 import java.util.List;
 
-import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import service.web.container.Login;
 
-public class DashboardController extends SimpleFormController {
+public class DashboardController{
 
     PersistenceInterface persistance;
     

@@ -1,25 +1,15 @@
 package service.action;
 
-import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
-import org.springframework.validation.Errors;
-import org.apache.log4j.Logger;
-
 import service.web.container.Login;
 
-public class LoginValidator implements Validator {
-
-    /** Logger for this class and subclasses */
-    protected final Logger logger = Logger.getLogger(getClass());
+public class LoginValidator{
 
     public boolean supports(Class clazz) {
         return Login.class.equals(clazz);
     }
     
     
-    public void validate(Object target, Errors errors) 
+    public void validate(Object target) 
     {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "required.username");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required.password");
 	}
 }
