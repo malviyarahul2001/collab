@@ -2,7 +2,7 @@ package hack.persistence.model;
 
 public class UserContact {
 	
-	UserContact() {}
+	public UserContact() {}
 
 	String email;
 	String cellNumber;

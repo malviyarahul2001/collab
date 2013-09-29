@@ -69,9 +69,6 @@ h1 {
 
 </head>
 <body>
-    <h1 align="center">
-        <fmt:message key="application.heading" />
-    </h1>
     
     <div align="center" class="pure-form pure-form-aligned">
 		
@@ -104,7 +101,7 @@ h1 {
                 <td align="center" width="100%">
                     <a href='#' onclick="formvalidation()">Sign-In</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="<c:url value="register.htm"/>">Create new account</a>
+                    <a href="<c:url value="register.htm"/>">Register</a>
                 <td>
             </tr>
         </table>
