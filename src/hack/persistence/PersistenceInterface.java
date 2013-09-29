@@ -1,5 +1,7 @@
 package hack.persistence;
 
+import java.util.List;
+
 import hack.persistence.model.LoginDetails;
 import hack.persistence.model.Query;
 import hack.persistence.model.User;
@@ -19,7 +21,9 @@ public interface PersistenceInterface
     
     public void setUser(User user);
     
-    public Query getQuery(long id);
+    public List<Query> getAllQueries();
     
-    public void setQuery(long id, Query query);
+    public void setQuery(Query query);
+    
+    public void addClaim(Long queryId, User user);
 }
