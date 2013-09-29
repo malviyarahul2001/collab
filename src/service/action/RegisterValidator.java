@@ -1,11 +1,11 @@
 package service.action;
 
-import hack.persistence.model.User;
-
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import org.springframework.validation.Errors;
 import org.apache.log4j.Logger;
+
+import service.web.container.UserDetails;
 
 public class RegisterValidator implements Validator {
 
@@ -13,7 +13,7 @@ public class RegisterValidator implements Validator {
     protected final Logger logger = Logger.getLogger(getClass());
 
     public boolean supports(Class clazz) {
-        return User.class.equals(clazz);
+        return UserDetails.class.equals(clazz);
     }
     
     
