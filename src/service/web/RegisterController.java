@@ -13,6 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import service.action.RegisterManager;
+import service.web.container.UserDetails;
 
 public class RegisterController extends SimpleFormController {
 
@@ -23,13 +24,13 @@ public class RegisterController extends SimpleFormController {
 
     public ModelAndView onSubmit(Object command) throws ServletException 
     {
-        User user = ((User) command);
-        System.out.println("Got user " + user.toString());
+        UserDetails userdetails = ((UserDetails) command);
+        System.out.println("Got user " + userdetails.getUser().getName().toString());
         
-        boolean userExists = registerManager.checkUserExistence(user);
+        boolean userExists = registerManager.checkUserExistence(userdetails.getUser());
     	if(!userExists)
     	{
-    		registerManager.register(user);
+    		registerManager.register(userdetails.getLogindetails(), userdetails.getUser());
     	}
     	else
     	{
