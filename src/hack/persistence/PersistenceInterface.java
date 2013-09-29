@@ -25,5 +25,5 @@ public interface PersistenceInterface
     
     public void setQuery(Query query);
     
-    public void addClaim(Long queryId, User user);
+    public void addClaim(Long queryId, String username);
 }

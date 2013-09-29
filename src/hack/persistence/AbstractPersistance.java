@@ -1,6 +1,9 @@
 package hack.persistence;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
 
 import hack.persistence.model.LoginDetails;
 import hack.persistence.model.Query;
@@ -40,13 +43,30 @@ public abstract class AbstractPersistance implements PersistenceInterface
         m_User.put(user.getName(), user);
     }
     
-    public Query getQuery(long id)
+    public List<Query> getAllQueries()
     {
-        return m_Query.get(id);
+        List<Query> queryList = new ArrayList<Query>();
+        
+        for(Entry<Long, Query> entry : m_Query.entrySet())
+        {
+            queryList.add(entry.getValue());
+        }
+        
+        return queryList;
     }
     
-    public void setQuery(long id, Query query) 
+    public void setQuery(Query query) 
     {
-        m_Query.put(id, query);
+        m_Query.put(query.getId(), query);
+    }
+    
+    public void addClaim(Long queryId, String username)
+    {
+        Query query = m_Query.get(queryId);
+        if(query != null && username != null)
+        {
+            // This thing should be instantiated when we create the query object
+            query.getClaimers().add(username); 
+        }
     }
 }
