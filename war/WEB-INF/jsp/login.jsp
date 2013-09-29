@@ -71,42 +71,9 @@ h1 {
 <body>
     
     <div align="center" class="pure-form pure-form-aligned">
-		
-    <form:form id="loginForm" method="post" commandName="login">
-        <table width="50%" align="center" border="0" cellspacing="0" cellpadding="5">
-            <tr>
-                <td align="center" style="color: #0000FF; font-size: 20pt"><b>
-                    <fmt:message key="login.heading" /></b>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table align="center" width="100%">
-                        <tr>
-                            <td width="60%" align="right"><b> 
-                                <form:label path="username">Username <font color="red">(*)</font>: </form:label></b>
-                                <form:input id="username" path="username" /></td>
-                            <td width="40%" align="left"><form:errors path="username" cssClass="error" /></td>
-                        </tr>
-                        <tr>
-                            <td width="60%" align="right"><b> <form:label path="password">Password <font color="red">(*)</font>: </form:label></b>
-                            <form:password id="password" path="password" /></td>
-                            <td align="left" width="40%"><form:errors path="password" cssClass="error" /></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+    
+       ${message} 		
 
-            <tr width="100%">
-                <td align="center" width="100%">
-                    <a href='#' onclick="formvalidation()">Sign-In</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="<c:url value="register.htm"/>">Register</a>
-                <td>
-            </tr>
-        </table>
-        <br>
-    </form:form>
     </div>
-    <a href="<c:url value="hello.htm"/>">Home</a>
+    
 </body>

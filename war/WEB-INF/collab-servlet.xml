@@ -5,42 +5,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+    <mvc:annotation-driven />
+    <context:component-scan base-package="service.web" />
+    
     <!-- the application context definition for the springapp DispatcherServlet -->
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages"/>
     </bean>
    
-   <bean name="/login*" class="service.web.LoginController">
-        <property name="sessionForm" value="true"/>
-        <property name="commandName" value="login"/>
-        <property name="commandClass" value="service.web.container.Login"/>
-        <property name="formView" value="login"/>
-        <property name="successView" value="dashboard"/>
-        <property name="loginManager" ref="loginManager"/>
-        <property name="dashboardManager" ref="dashboardManager"/>
-    </bean>
-    
-    <bean name="/register.htm*" class="service.web.RegisterController">
-        <property name="sessionForm" value="true"/>
-        <property name="commandName" value="register"/>
-        <property name="commandClass" value="service.web.container.UserDetails"/>
-        <property name="formView" value="register"/>
-        <property name="successView" value="login.htm"/>
-        <property name="registerManager" ref="registerManager"/>
-    </bean>
-    
-    <bean name="/dashboard.htm*" class="service.web.DashboardController">
-        <property name="sessionForm" value="true"/>
-        <property name="commandName" value="dashboard"/>
-        <property name="formView" value="dashboard"/>
-        <property name="successView" value="dashboard.htm"/>
-    </bean>
-    
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
         <property name="prefix" value="/WEB-INF/jsp/"></property>
         <property name="suffix" value=".jsp"></property>        
     </bean>
+
 
 </beans>

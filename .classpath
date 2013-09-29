@@ -10,7 +10,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-aop-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-beans-3.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context-3.2.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context-3.2.4.RELEASE.jar" sourcepath="/Users/rahul/.m2/repository/org/springframework/spring-context/3.2.4.RELEASE/spring-context-3.2.4.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-expression-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
