@@ -21,6 +21,10 @@
         <property name="persistance" ref="persistance"/>
     </bean>
     
+    <bean id="dashboardManager" class="service.action.SimpleDashboardManager">
+        <property name="persistance" ref="persistance"/>
+    </bean>
+    
     <bean id="persistance" class="hack.persistence.impl.SimplePersistenceImpl"/>
 
   
