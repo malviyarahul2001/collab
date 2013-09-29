@@ -4,7 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.1.2.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-mapper-asl-1.7.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/servlet-api-2.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-core-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-web-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc-3.2.4.RELEASE.jar"/>
@@ -12,5 +11,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-beans-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context-3.2.4.RELEASE.jar" sourcepath="/Users/rahul/.m2/repository/org/springframework/spring-context/3.2.4.RELEASE/spring-context-3.2.4.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-expression-3.2.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/junit-4.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
