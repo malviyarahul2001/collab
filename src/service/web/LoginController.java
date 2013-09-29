@@ -14,8 +14,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import service.action.LoginManager;
-import service.action.Login;
-
+import service.web.container.Login;
 
 public class LoginController extends SimpleFormController {
 

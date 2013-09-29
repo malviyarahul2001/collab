@@ -3,8 +3,9 @@ package service.action;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import org.springframework.validation.Errors;
-
 import org.apache.log4j.Logger;
+
+import service.web.container.Login;
 
 public class LoginValidator implements Validator {
 
