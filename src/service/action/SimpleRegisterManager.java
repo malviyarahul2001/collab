@@ -20,8 +20,8 @@ public class SimpleRegisterManager implements RegisterManager
    
     public boolean checkUserExistence(User user)
     {
-    	//return loginDao.checkUserExistence(user);
-    	return true;
+    	return (!(persistance.getLoginDetails(user.getName()) == null));
+   
     }
     
     public PersistenceInterface getPersistance() {

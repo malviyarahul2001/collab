@@ -25,9 +25,6 @@
         <property name="sessionForm" value="true"/>
         <property name="commandName" value="register"/>
         <property name="commandClass" value="service.web.container.UserDetails"/>
-        <property name="validator">
-            <bean class="service.action.RegisterValidator"/>
-        </property>
         <property name="formView" value="register"/>
         <property name="successView" value="login.htm"/>
         <property name="registerManager" ref="registerManager"/>
