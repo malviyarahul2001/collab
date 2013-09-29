@@ -2,7 +2,7 @@ package hack.persistence.model;
 
 public class LoginDetails {
 	
-	LoginDetails() {}
+	public LoginDetails() {}
 	
 	String userName;
 	String password;
