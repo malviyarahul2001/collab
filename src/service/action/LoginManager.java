@@ -1,10 +1,11 @@
 package service.action;
 
 import java.io.Serializable;
+import java.util.Map;
 
 
 public interface LoginManager extends Serializable{
 
-    public boolean validLogin(String username, String password);
+    public Map<String,String> validateLogin(String username, String password);
     
 }

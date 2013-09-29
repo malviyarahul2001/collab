@@ -19,71 +19,64 @@ import service.action.Login;
 
 public class LoginController extends SimpleFormController {
 
-    /** Logger for this class and subclasses */
-    protected final Log logger = LogFactory.getLog(getClass());
+	/** Logger for this class and subclasses */
+	protected final Log logger = LogFactory.getLog(getClass());
 
-    private LoginManager loginManager;
+	private LoginManager loginManager;
 
-    public ModelAndView onSubmit(Object command) throws Exception {
+	public ModelAndView onSubmit(Object command) throws Exception {
 
-        String username = ((Login) command).getUsername();
-        String password = ((Login) command).getPassword();
+		String username = ((Login) command).getUsername();
+		String password = ((Login) command).getPassword();
 
-        System.out.println("Got password " + password);
-        System.out.println("Got username " + username);
-        
-        boolean isvalid = false;
-        
-        
-      
-        	if(username != null && !username.equalsIgnoreCase("") && password != null && !password.equalsIgnoreCase(""))
-            	isvalid = loginManager.validLogin(username, password);
-        
-	        ModelAndView modelAndView = null;
-	        	
-	       	try{ 	
-	        	if(isvalid)
-	            {
-	            	System.out.println("Is valid");
-	                
-	                Map<String, Object> myModel = new HashMap<String, Object>();
-	                
-	                
-	                 modelAndView = new ModelAndView("messages","model",myModel);
-	                
-	            }
-	            else
-	            {
-	            	
-	            	System.out.println("Is invalid");
-	            	Map<String, Object> myModel = new HashMap<String, Object>();
-	                myModel.put("invalid", "Invalid Username or Passowrd");
-	                
-	                 modelAndView = new ModelAndView("login","model",myModel);
-	                
-	                
-	            }
-	        }
-	        catch (Exception e){
-	        	System.out.println("LoginController:::An exception occured while "
-	        			+ "checking the user authentication" + e.getStackTrace());
-	        }
-	        
-	        return modelAndView;
-        
-    }
+		System.out.println("Got password " + password);
+		System.out.println("Got username " + username);
 
-    protected Object formBackingObject(HttpServletRequest request) throws ServletException {
-        Login login = new Login();
-        return login;
-    }
+		Map<String,String> validateMap = new HashMap<String,String>();
 
-    public void setLoginManager(LoginManager loginManager) {
-        this.loginManager = loginManager;
-    }
+		if(username != null && !username.equalsIgnoreCase("") && password != null && !password.equalsIgnoreCase(""))
+			validateMap = loginManager.validateLogin(username, password);
 
-    public LoginManager getLoginManager() {
-        return loginManager;
-    }
+		ModelAndView modelAndView = null;
+
+		try{ 	
+			if(validateMap != null)
+			{
+				if(validateMap.get("success").equals("true")) {
+					System.out.println("Is valid");
+					// do something when login is a success
+				}
+				else
+				{
+					System.out.println("Is invalid");
+					Map<String, Object> myModel = new HashMap<String, Object>();
+					myModel.put("invalid", validateMap.get("error"));
+
+					modelAndView = new ModelAndView("login","model",myModel);
+				}
+
+			}
+		}
+		catch (Exception e){
+			System.out.println("LoginController:::An exception occured while "
+					+ "checking the user authentication" + e.getStackTrace());
+		}
+
+		return modelAndView;
+
+	}
+
+	protected Object formBackingObject(HttpServletRequest request) throws ServletException {
+		Login login = new Login();
+		return login;
+	}
+
+	public void setLoginManager(LoginManager loginManager) {
+		this.loginManager = loginManager;
+	}
+
+	public LoginManager getLoginManager() {
+		return loginManager;
+	}
 
 }
