@@ -25,9 +25,9 @@ public abstract class AbstractPersistance implements PersistenceInterface
         return m_LoginDetails.get(user);
     }
     
-    public void addLoginDetails(String user, LoginDetails loginDetails)
+    public void addLoginDetails(LoginDetails loginDetails)
     {
-        m_LoginDetails.put(user, loginDetails);
+        m_LoginDetails.put(loginDetails.getUserName(), loginDetails);
     }
     
     public User getUser(String username)

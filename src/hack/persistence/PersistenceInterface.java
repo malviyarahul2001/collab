@@ -13,7 +13,7 @@ public interface PersistenceInterface
 {
     public LoginDetails getLoginDetails(String user);
     
-    public void addLoginDetails(String user, LoginDetails loginDetails);
+    public void addLoginDetails(LoginDetails loginDetails);
     
     public User getUser(String username);
     
