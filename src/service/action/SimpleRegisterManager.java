@@ -1,6 +1,6 @@
 package service.action;
 
-import hack.persistence.impl.SimplePersistenceImpl;
+import hack.persistence.PersistenceInterface;
 import hack.persistence.model.LoginDetails;
 import hack.persistence.model.User;
 
@@ -10,7 +10,7 @@ public class SimpleRegisterManager implements RegisterManager
 
 	private static final long serialVersionUID = 1L;
 	
-	SimplePersistenceImpl persistance;
+	PersistenceInterface persistance;
 
     @Override
     public void register(LoginDetails logindetails, User user) {
@@ -24,11 +24,11 @@ public class SimpleRegisterManager implements RegisterManager
     	return true;
     }
     
-    public SimplePersistenceImpl getPersistance() {
+    public PersistenceInterface getPersistance() {
         return persistance;
     }
     
-    public void setPersistance(SimplePersistenceImpl persistance) {
+    public void setPersistance(PersistenceInterface persistance) {
         this.persistance = persistance;
     }
 }

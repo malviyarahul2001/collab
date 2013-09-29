@@ -1,6 +1,9 @@
 package service.web;
 
+import hack.persistence.model.Query;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -13,6 +16,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import service.action.LoginManager;
+import service.action.SimpleDashboardManager;
 import service.web.container.Login;
 
 public class LoginController extends SimpleFormController {
@@ -21,8 +25,18 @@ public class LoginController extends SimpleFormController {
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	private LoginManager loginManager;
+	
+	private SimpleDashboardManager dashboardManager;
 
-	public ModelAndView onSubmit(Object command) throws Exception {
+	public SimpleDashboardManager getDashboardManager() {
+        return dashboardManager;
+    }
+
+    public void setDashboardManager(SimpleDashboardManager dashboardManager) {
+        this.dashboardManager = dashboardManager;
+    }
+
+    public ModelAndView onSubmit(Object command) throws Exception {
 
 		String username = ((Login) command).getUsername();
 		String password = ((Login) command).getPassword();
@@ -43,6 +57,14 @@ public class LoginController extends SimpleFormController {
 				if(validateMap.get("success").equals("true")) {
 					System.out.println("Is valid");
 					// do something when login is a success
+					List<Query> queryList = dashboardManager.getQueries(username);
+					
+		            Map<String, Object> myModel = new HashMap<String, Object>();
+		            myModel.put("query", queryList);
+		            
+		            modelAndView = new ModelAndView("query","model",myModel);
+		            
+		            return modelAndView;
 				}
 				else
 				{
