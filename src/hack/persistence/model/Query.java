@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Query {
 	
-	Query() {}
+	public Query() {}
 	
 	long id;
 	User user;

@@ -2,7 +2,7 @@ package hack.persistence.model;
 
 public class User {
 
-	User() {}
+	public User() {}
 	
 	String name;
 	int tableNumber;
