@@ -1,7 +1,6 @@
 package service.web;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -51,7 +50,9 @@ public class LoginController extends SimpleFormController {
 					Map<String, Object> myModel = new HashMap<String, Object>();
 					myModel.put("invalid", validateMap.get("error"));
 
-					modelAndView = new ModelAndView("login","model",myModel);
+					System.out.println("Next");
+					//modelAndView = new ModelAndView("login","model",myModel);
+					//modelAndView = new ModelAndView("login","model",new Login());
 				}
 
 			}

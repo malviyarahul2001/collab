@@ -1,73 +1,95 @@
 <%@ include file="/WEB-INF/jsp/include.jsp"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-
-<!doctype html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Simple CSS for HTML forms.">
+<title><fmt:message key="appTitle" /></title>
+<style>
+h1 {
+    color: #FF8000;
+}
 
-<title>Forms &ndash; Pure</title>
+.error {
+    color: #ff0000;
+}
 
-<link rel="stylesheet"
-	href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+.errorblock {
+    color: #000;
+    background-color: #ffEEEE;
+    border: 3px solid #ff0000;
+    padding: 8px;
+    margin: 16px;
+}
+</style>
+<script type="text/javascript">
+    var submitted = 0;
 
-<link rel="stylesheet"
-	href="/combo/1.6.3?/css/main.css&/css/rainbow/baby-blue.css">
-
-
-<script src="http://use.typekit.net/gis6vng.js"></script>
-<script>
-	try {
-		Typekit.load();
-	} catch (e) {
-	}
+    function formvalidation() {
+        
+        var form = document.getElementById('loginForm');
+        form.submit();
+        /*
+        var userName = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        
+        if ((userName == null || userName == "")
+                && (password == null || password == "")) {
+            alert("Please enter the username and password !!!");
+            return false;
+        } else if (userName == null || userName == "") {
+            alert("Please enter the username !!!");
+            return false;
+        } else if (password == null || password == "") {
+            alert("Please enter the password !!!");
+            return false;
+        }
+        else
+        {
+            
+        }
+        */
+    }
 </script>
-
 
 </head>
 <body>
+    <h1 align="center">
+        <fmt:message key="application.heading" />
+    </h1>
+    <form:form id="loginForm" method="post" commandName="login">
+        <table width="50%" align="center" bgcolor="#E1F5A9" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+                <td align="center" style="color: #0000FF; font-size: 20pt"><b>
+                    <fmt:message key="login.heading" /></b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table align="center" width="100%">
+                        <tr>
+                            <td width="60%" align="right"><b> 
+                                <form:label path="username">Username <font color="red">(*)</font>: </form:label></b>
+                                <form:input id="username" path="username" /></td>
+                            <td width="40%" align="left"><form:errors path="username" cssClass="error" /></td>
+                        </tr>
+                        <tr>
+                            <td width="60%" align="right"><b> <form:label path="password">Password <font color="red">(*)</font>: </form:label></b>
+                            <form:password id="password" path="password" /></td>
+                            <td align="left" width="40%"><form:errors path="password" cssClass="error" /></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
 
-	<div class="pure-g-r" id="layout" align="center">
-		<a href="#menu" id="menuLink" class="pure-menu-link"> <span></span>
-		</a>
-
-	</div>
-	<div class="header" align="center">
-
-		<h2>Enter login credentials</h2>
-
-	</div>
-
-
-	<div class="content" align="center">
-
-	<form class="pure-form pure-form-aligned">
-    <fieldset>
-    <legend> </legend>
-    
-        <div class="pure-control-group">
-            <label for="name">Username</label>
-            <input id="name" type="text" placeholder="Username">
-        </div>
-
-        <div class="pure-control-group">
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="Password">
-        </div>
-
-        <div class="pure-controls">
-            <label for="cb" class="pure-checkbox">
-                <input id="cb" type="checkbox"> Remember Me
-            </label>
-
-            <button type="submit" class="pure-button pure-button-primary">Submit</button>
-        </div>
-    </fieldset>
-</form>
-		
-	</div>
+            <tr width="100%">
+                <td align="center" width="100%">
+                    <a href='#' onclick="formvalidation()">Sign-In</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="<c:url value="register.htm"/>">Create new account</a>
+                <td>
+            </tr>
+        </table>
+        <br>
+    </form:form>
+    <a href="<c:url value="hello.htm"/>">Home</a>
 </body>
-</html>
