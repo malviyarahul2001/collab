@@ -1,5 +1,7 @@
 package service.action;
 
+import java.util.List;
+
 import hack.persistence.PersistenceInterface;
 import hack.persistence.model.Query;
 
@@ -16,8 +18,27 @@ public class PostQuery {
     PersistenceInterface persistence;
 
     public boolean postQueryFromUser(Query query) {
+    	
+    	List<Query> queries = persistence.getAllQueries();
+    	
+    	boolean isSame;
+    	
+    	for(Query existingQuery : queries) {
+    		isSame = areQueriesSimilar(existingQuery, query);
+    	}
+    		
     	persistence.setQuery(query);
     	return true;
+    }
+    
+    public boolean areQueriesSimilar(Query existingQuery, Query newQuery) {
+    	
+    	String existingTitle = existingQuery.getTitle();
+    	String newTitle = newQuery.getTitle();
+    	
+    	
+    	
+    	return false;
     }
 
 }

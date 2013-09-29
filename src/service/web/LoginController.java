@@ -46,7 +46,7 @@ public class LoginController extends SimpleFormController {
 				}
 				else
 				{
-					System.out.println("Is invalid");
+					System.out.println("Is invalid, reason: " + validateMap.get("error"));
 					Map<String, Object> myModel = new HashMap<String, Object>();
 					myModel.put("invalid", validateMap.get("error"));
 

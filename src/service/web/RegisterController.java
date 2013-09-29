@@ -41,7 +41,7 @@ public class RegisterController extends SimpleFormController {
     }
 
     protected Object formBackingObject(HttpServletRequest request) throws ServletException {
-        User user = new User();
+        UserDetails user = new UserDetails();
         return user;
     }
 

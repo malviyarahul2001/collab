@@ -51,13 +51,32 @@ h1 {
     }
 </script>
 
+<link rel="stylesheet"
+	href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+
+<link rel="stylesheet"
+	href="/combo/1.6.3?/css/main.css&/css/rainbow/baby-blue.css">
+
+
+<script src="http://use.typekit.net/gis6vng.js"></script>
+<script>
+	try {
+		Typekit.load();
+	} catch (e) {
+	}
+</script>
+
+
 </head>
 <body>
     <h1 align="center">
         <fmt:message key="application.heading" />
     </h1>
+    
+    <div align="center" class="pure-form pure-form-aligned">
+		
     <form:form id="loginForm" method="post" commandName="login">
-        <table width="50%" align="center" bgcolor="#E1F5A9" border="0" cellspacing="0" cellpadding="5">
+        <table width="50%" align="center" border="0" cellspacing="0" cellpadding="5">
             <tr>
                 <td align="center" style="color: #0000FF; font-size: 20pt"><b>
                     <fmt:message key="login.heading" /></b>
@@ -91,5 +110,6 @@ h1 {
         </table>
         <br>
     </form:form>
+    </div>
     <a href="<c:url value="hello.htm"/>">Home</a>
 </body>
